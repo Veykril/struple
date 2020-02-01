@@ -1,13 +1,22 @@
+//! This crate provides a derive macro for generating from and to tuple conversion functions.
+
+#![no_std]
+
 pub use struple_impl::Struple;
 
 mod private {
     pub trait Sealed {}
 }
+/// A marker trait implemented by all tuples up to arity 26.
 pub trait GenericTuple: private::Sealed {}
 
+/// Implementors of this trait allow the conversion from and to tuples.
 pub trait Struple {
+    /// The tuple representation of this type.
     type Tuple: GenericTuple;
+    /// Constructs a value of this type from its tuple representation.
     fn from_tuple(tuple: Self::Tuple) -> Self;
+    /// Turns this value into its tuple representation.
     fn into_tuple(self) -> Self::Tuple;
 }
 

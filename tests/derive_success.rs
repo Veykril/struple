@@ -1,6 +1,9 @@
 use struple::Struple;
 
 #[derive(Struple)]
+struct Unary(i32);
+
+#[derive(Struple)]
 struct Generic<A, B, C, D> {
     bar: A,
     baz: B,
@@ -27,6 +30,12 @@ struct Tuple(i32, u64, String);
 
 #[derive(Struple)]
 struct Unit;
+
+#[test]
+fn test_unary_impl() {
+    let foo = Unary::from_tuple((3,));
+    assert_eq!(foo.into_tuple(), (3,));
+}
 
 #[test]
 fn test_named_impl() {
