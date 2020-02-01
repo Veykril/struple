@@ -1,0 +1,5 @@
+error: Struple may only be derived on structs
+ --> $DIR/derive_union.rs:3:10
+  |
+3 | #[derive(Struple)]
+  |          ^^^^^^^

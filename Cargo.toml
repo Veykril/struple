@@ -1,0 +1,20 @@
+[package]
+name = "struple"
+version = "0.1.0"
+authors = ["Lukas Wirth <lukastw97@gmail.com>"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "Convert structures from and to tuples"
+repository = "https://github.com/veykril/struple"
+documentation = "https://docs.rs/struple"
+readme = "README.md"
+
+[dependencies]
+struple-impl = { path = "derive" }
+
+[dev-dependencies]
+rustversion = "1"
+trybuild = { version = "1", features = ["diff"] }
+
+[workspace]
+members = ["derive"]

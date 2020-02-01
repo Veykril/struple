@@ -1,0 +1,19 @@
+[package]
+name = "struple-impl"
+version = "0.1.0"
+authors = ["Veykril <lukastw97@gmail.com>"]
+edition = "2018"
+license = "MIT OR Apache-2.0"
+description = "Derive implementation for struple::Struple"
+repository = "https://github.com/veykril/struple"
+documentation = "https://docs.rs/struple-impl"
+readme = "README.md"
+
+[lib]
+name = "struple_impl"
+proc-macro = true
+
+[dependencies]
+syn = "1"
+quote = "1"
+proc-macro2 = "1"
