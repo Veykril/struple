@@ -1,6 +1,9 @@
 Struple
 =======
 
+[![Crate](https://img.shields.io/crates/v/struple.svg)](https://crates.io/crates/struple)
+[![Docs](https://docs.rs/struple/badge.svg)](https://docs.rs/struple)
+
 Derive a trait for tuple <-> struct conversion for your own struct.
 
 ## Basic example
@@ -9,7 +12,7 @@ Derive a trait for tuple <-> struct conversion for your own struct.
 use struple::Struple
 
 #[derive(Struple)]
-struct Foo(String, u64, f32);
+struct Foo(&'static str, u64, f32);
 
 fn main() {
     let string = "hello";

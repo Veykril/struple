@@ -8,6 +8,8 @@ description = "Derive implementation for struple::Struple"
 repository = "https://github.com/veykril/struple"
 documentation = "https://docs.rs/struple-impl"
 readme = "../README.md"
+keywords = ["tuple", "struct", "convert", "struct", "derive"]
+categories = ["rust-patterns"]
 
 [lib]
 name = "struple_impl"
