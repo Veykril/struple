@@ -8,7 +8,7 @@ mod private {
     pub trait Sealed {}
 }
 
-/// A marker trait implemented by all tuples up to arity 26.
+/// A marker trait implemented by all tuples up to arity 26(100 with the `big-tuples` feature enabled).
 pub trait GenericTuple: private::Sealed {}
 
 /// Implementors of this trait allow the conversion from and to tuples.
@@ -22,7 +22,7 @@ pub trait Struple {
 }
 
 macro_rules! gen_tuple_impl {
-    ($($types:ident),*) => { gen_tuple_impl!(@rec [$($types,)*] []); };
+    ($($types:ident),* $(,)?) => { gen_tuple_impl!(@rec [$($types,)*] []); };
     (@rec [] [$($types:ident,)*]) => { gen_tuple_impl!(@do_impl $($types,)*); };
     (@rec [$head:ident, $($tail:ident,)*] [$($types:ident,)*]) => {
         gen_tuple_impl!(@do_impl $($types,)*);
@@ -33,6 +33,14 @@ macro_rules! gen_tuple_impl {
         impl<$($types,)*> GenericTuple for ($($types,)*) {}
     };
 }
+
+#[cfg(not(feature = "big-tuples"))]
+gen_tuple_impl!(
+    _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21,
+    _22, _23, _24, _25, _26
+);
+
+#[cfg(feature = "big-tuples")]
 gen_tuple_impl!(
     _1, _2, _3, _4, _5, _6, _7, _8, _9, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _20, _21,
     _22, _23, _24, _25, _26, _27, _28, _29, _30, _31, _32, _33, _34, _35, _36, _37, _38, _39, _40,

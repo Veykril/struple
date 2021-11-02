@@ -32,6 +32,7 @@ struct Tuple(i32, u64, String);
 struct Unit;
 
 #[derive(Struple)]
+#[cfg(feature = "big-tuples")]
 struct Huge {
     _1: i32,
     _2: i32,
@@ -142,6 +143,7 @@ fn test_unary_impl() {
 }
 
 #[test]
+#[cfg(feature = "big-tuples")]
 fn test_huge_impl() {
     let foo = Huge::from_tuple((
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25,
