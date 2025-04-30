@@ -1,6 +1,6 @@
 [package]
 name = "struple"
-version = "0.1.1"
+version = "0.2.0"
 authors = ["Lukas Wirth <lukastw97@gmail.com>"]
 edition = "2018"
 license = "MIT OR Apache-2.0"
@@ -16,10 +16,7 @@ default = []
 big-tuples = []
 
 [dependencies]
-struple-impl = "0.1.0"
-
-[patch."crates-io"]
-struple-impl.path = "./derive"
+struple-impl = { version = "0.2.0", path = "./derive" }
 
 [dev-dependencies]
 trybuild = { version = "1", features = ["diff"] }
